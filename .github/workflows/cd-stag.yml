@@ -11,7 +11,7 @@
         name: Deploying the everything to staggging
         steps:
          - run: |
-              echo ${{secrets.SSH_PRIVATE_KEY}} &> ~/ssh_key
+              echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
               ssh -i ~/ssh_key ubuntu@13.126.70.90
               cd deploy-next-app && git pull
               pnpm install
