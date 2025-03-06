@@ -17,11 +17,12 @@
               touch /home/runner/.ssh/known_hosts
               chmod 700 ~/ssh_key
               echo "${{secrets.KNOWN_HOSTS}}" $> /home/runner/.ssh/known_hosts
-              ssh -i ~/ssh_key ubuntu@13.126.70.90 
+              ssh -i ~/ssh_key ubuntu@13.126.70.90 <<
+              ls -la
               cd deploy-next-app && git pull
               pnpm install
               pnpm run build
               pm2 restart http-server 
               pm2 restart ws-server 
-              pm2 restart web
+              pm2 restart web >>
     
