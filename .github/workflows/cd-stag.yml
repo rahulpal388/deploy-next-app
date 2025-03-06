@@ -13,7 +13,7 @@
          - run: |
               echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
               chmod 700 /home/runner/ssh_key
-              cd ~/ssh_key
+              cd /home/runner/ssh_key
               ls -la
               mkdir -p /home/runner/.ssh
               ls /home/runner/.ssh
