@@ -16,13 +16,5 @@
               touch /home/runner/.ssh/known_hosts
               chmod 700 ~/ssh_key
               echo "${{secrets.KNOWN_HOSTS}}" $> /home/runner/.ssh/known_hosts
-              ssh -i ~/ssh_key ubuntu@13.126.99.149 << 'EOF'
-              cd deploy-next-app && git pull
-              export PATH=/home/ubuntu/.nvm/versions/node/v22.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
-              pnpm install
-              pnpm run build
-              pm2 restart http-server 
-              pm2 restart ws-server 
-              pm2 restart web 
-              EOF
+              ssh -i ~/ssh_key ubuntu@13.126.99.149 -t "ls -la"
     
