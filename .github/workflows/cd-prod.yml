@@ -13,7 +13,7 @@
          - run: |
               echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
               chmod 700 ~/ssh_key
-              ssh -o StrictHostKeyChecking=no
+              ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@13.126.99.149
               ssh -i ~/ssh_key ubuntu@13.126.99.149 << 'EOF'
               cd deploy-next-app && git pull production
               export PATH=/home/ubuntu/.nvm/versions/node/v22.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
