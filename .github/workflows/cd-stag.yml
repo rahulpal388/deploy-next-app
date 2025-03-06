@@ -18,7 +18,7 @@
               chmod 700 ~/ssh_key
               echo "${{secrets.KNOWN_HOSTS}}" $> /home/runner/.ssh/known_hosts
               ssh -i ~/ssh_key ubuntu@13.126.70.90
-              ls
+              ls -la
               cd deploy-next-app && git pull
               pnpm install
               pnpm run build
