@@ -1,5 +1,5 @@
 ---
-    name: Deploy to stagging
+    name: Deploy to production
     on:
       push:
         branches:
