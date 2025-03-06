@@ -5,12 +5,13 @@
         branches:
           - main
     jobs:
+    
       redeploy-everything:
+        runs-on: ubuntu-latest
         name: Deploying the everything to staggging
         steps:
-          - name: SSH into server
-          - run: |
-              echo ${{secret.SSH_PRIVATE_KEY}} &> ~/ssh_key
+         - run: |
+              echo ${{secrets.SSH_PRIVATE_KEY}} &> ~/ssh_key
               ssh -i ~/ssh_key ubuntu@13.126.70.90
               cd deploy-next-app && git pull
               pnpm install
