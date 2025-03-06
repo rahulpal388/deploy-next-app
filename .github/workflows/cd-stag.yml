@@ -13,13 +13,11 @@
          - run: |
               echo "${{secrets.SSH_PRIVATE_KEY}}" &> ~/ssh_key
               mkdir -p /home/runner/.ssh
-              ls /home/runner/.ssh
               touch /home/runner/.ssh/known_hosts
               chmod 700 ~/ssh_key
               echo "${{secrets.KNOWN_HOSTS}}" $> /home/runner/.ssh/known_hosts
               ssh -i ~/ssh_key ubuntu@13.126.70.90 << 'EOF'
               cd deploy-next-app && git pull
-              ls -la
               export PATH=/home/ubuntu/.nvm/versions/node/v22.14.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
               pnpm install
               pnpm run build
